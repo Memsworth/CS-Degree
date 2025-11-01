@@ -1,5 +1,11 @@
 # Computer Science Degree (CS-Degree)
 
+![GitHub last commit](https://img.shields.io/github/last-commit/Memsworth/CS-Degree)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Repo Size](https://img.shields.io/github/repo-size/Memsworth/CS-Degree)
+![Languages](https://img.shields.io/github/languages/top/Memsworth/CS-Degree)
+
+
 This repository documents my **Computer Science curriculum** and **supplementary learning** alongside my coursework at _Amrita University_.
 
 ---
