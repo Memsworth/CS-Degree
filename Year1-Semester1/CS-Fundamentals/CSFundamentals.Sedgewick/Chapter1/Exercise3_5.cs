@@ -2,6 +2,25 @@ using System;
 
 namespace CSFundamentals.Sedgewick.Chapter1;
 
+/*
+ * Roll Loaded Die
+ *
+ * Write a program RollLoadedDie that prints the result of rolling a loaded die.
+ * The die is loaded such that the probability of getting a 1, 2, 3, 4, or 5 is 1/8 each,
+ * and the probability of getting a 6 is 3/8.
+ *
+ * Your program should:
+ *   - Simulate rolling a loaded six-sided die.
+ *   - Print the outcome of the roll (an integer from 1 to 6).
+ *   - Ensure that the probabilities of each face match the specification.
+ *
+ * Example Output (possible results):
+ *   1
+ *   3
+ *   6
+ *   5
+ */
+
 public class Exercise3_5 : IExercise
 {
     public void Run(string[] args)

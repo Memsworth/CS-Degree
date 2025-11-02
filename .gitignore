@@ -400,3 +400,4 @@ FodyWeavers.xsd
 # JetBrains Rider
 *.sln.iml
 /.obsidian
+/Year1-Semester1/CS-Fundamentals/.idea

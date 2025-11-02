@@ -7,5 +7,5 @@ if (args.Length == 0)
 //    return;
 }
 
-var exercise = new Exercise2_34();
+IExercise exercise = new Exercise3_20();
 exercise.Run(args);

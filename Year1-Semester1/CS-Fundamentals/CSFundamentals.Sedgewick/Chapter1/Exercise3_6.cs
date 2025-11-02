@@ -2,6 +2,18 @@ using System;
 
 namespace CSFundamentals.Sedgewick.Chapter1;
 
+/*
+ * Wind Chill Calculator with Input Validation
+ *
+ * Improve your solution to exercise 1.2.25 by:
+ *   - Adding code to check that the values of the command-line arguments
+ *     fall within the ranges of validity of the formula:
+ *       * Temperature T: -50 <= T <= 50
+ *       * Wind speed v: 3 <= v <= 120
+ *   - Adding code to print an error message if either value is out of range.
+ */
+
+
 public class Exercise3_6 : IExercise
 {
     public void Run(string[] args) 
