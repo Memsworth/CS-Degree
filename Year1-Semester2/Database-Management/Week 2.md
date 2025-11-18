@@ -153,7 +153,6 @@ Integrity constraints are rules enforced on columns, ensuring data quality.
 - Can be composite (involving multiple columns).
 
 ```sql
-
 CREATE TABLE r (
   id INT PRIMARY KEY, 
   name VARCHAR(5) NOT NULL
@@ -162,7 +161,6 @@ CREATE TABLE r (
 
 ### Table-Level Primary Key
 ```sql
-
 CREATE TABLE r (
   id INT, 
   name CHAR(5) NOT NULL, 
