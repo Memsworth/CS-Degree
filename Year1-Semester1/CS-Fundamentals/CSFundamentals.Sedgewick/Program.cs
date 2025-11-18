@@ -4,7 +4,6 @@ using CSFundamentals.Sedgewick.Chapter1;
 if (args.Length == 0)
 {
     System.Console.WriteLine("Give me an args");
-//    return;
 }
 
 IExercise exercise = new Exercise3_20();
