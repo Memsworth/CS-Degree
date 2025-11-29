@@ -6,5 +6,5 @@ if (args.Length == 0)
     System.Console.WriteLine("Give me an args");
 }
 
-IExercise exercise = new Exercise3_20();
+IExercise exercise = new Exercise3_34();
 exercise.Run(args);

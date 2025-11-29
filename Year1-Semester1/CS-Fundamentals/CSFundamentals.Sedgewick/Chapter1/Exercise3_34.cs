@@ -2,41 +2,33 @@
 
 public class Exercise3_34 : IExercise
 {
-    
-    //TODO: Bad solution. Refactor this solution
     public void Run(string[] args)
     {
         var n = int.Parse(args[0]);
-        var cubeRoot = Math.Floor(Math.Cbrt(n));
-        for (int i = 0; i < cubeRoot; i++)
+        var cubeRoot = (int)Math.Floor(Math.Cbrt(n));
+        var listOfPossiblePair = new List<(int, int)>();
+        for (int i = 1; i <= cubeRoot; i++)
         {
-            for (int j = 0; j < cubeRoot; j++)
+            for (int j = 1; j <= cubeRoot; j++)
             {
                 var total = Math.Pow(i, 3) + Math.Pow(j, 3);
-                if (total == n)
+                if (total == n && PairExists(listOfPossiblePair, i, j) is false)
                 {
-                    System.Console.WriteLine($"{i} - {j}");
+                    listOfPossiblePair.Add((i, j));
                 }
             }
         }
-        
 
-        for(int i = 0; i < n; i++)
+        foreach(var pair in listOfPossiblePair)
         {
-            for (int j = 0; j< n; j++)
-            {
-                for (int k = 0; k < cubeRoot; k++)
-                {
-                    for (int b = 0; b < cubeRoot; b++)
-                    {
-                        var total = Math.Pow(i, 3) + Math.Pow(j, 3);
-                        if (total == n)
-                        {
-                            System.Console.WriteLine($"{i} - {j}");
-                        }
-                    }
-                }
-            }
+            Console.WriteLine($"Cube({pair.Item1}) + Cube({pair.Item2}) = {n}");
         }
+    }
+
+    private bool PairExists(List<(int, int)> list, int a, int b)
+    {
+        return list.Any(p =>
+            (p.Item1 == a && p.Item2 == b) ||
+            (p.Item1 == b && p.Item2 == a));
     }
 }
