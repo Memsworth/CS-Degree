@@ -1,99 +1,174 @@
-# **Week 2 – Java: Datatypes, Variables, Type Conversions, and Arrays**
 
-## **Java is Strongly Typed**
-- Every variable in Java must have a declared **type**.
-- Strong typing ensures **compatibility checking** at compile time.
-- Prevents assigning values of the wrong type (e.g., assigning a `String` to an `int`).
 
----
+## What is Polymorphism?
 
-## **Data Types in Java**
+**Polymorphism** means *“many forms.”*  
+In object-oriented programming, polymorphism allows the **same interface** (method name or behavior) to be used for **different data types or objects**.
 
-### **Primitive Data Types**
-Primitive types store simple values—not objects.
-
-| Type    | Size (bits) | Notes |
-|---------|-------------|-------|
-| `byte`  | 8           | Range: -128 to 127 |
-| `short` | 16          | |
-| `int`   | 32          | Default integer type |
-| `long`  | 64          | Add `L` suffix for literals |
-| `char`  | 16          | Stores a single Unicode character |
-| `float` | 32          | Decimal values, use `f` suffix |
-| `double`| 64          | Default floating type |
-| `boolean` | JVM-dependent | true/false |
-
-### **Reference Types**
-- Objects, arrays, classes, interfaces, etc.
-- Store **references** rather than actual data.
+> One interface, multiple implementations.
 
 ---
 
-## **Variables**
+## Example: Stack
 
-### **Declaration**
-Variables **must be declared before use**.
+A **Stack** always has the same operations:
+- push
+- pop
 
-### **Initialization**
-- **Static initialization:** value known at compile time.
-- **Dynamic initialization:** value computed at runtime.
+But the **data type** can differ:
+- Integer
+- Floating point
+- Character
 
-### **Variable Scope**
-1. **Class Scope (Fields)** – declared inside a class, available to all methods unless restricted.
-2. **Method Scope (Local Variables)** – declared inside methods or blocks, accessible only within those blocks.
+Using **generics**:
+
+``` java
+Interface Stack<T>  
+- void push(T value)  
+- void pop(T value)
+```
+
+> The behavior stays the same, but the data type changes.
 
 ---
 
-## **Type Conversion and Casting**
+## Types of Polymorphism
 
-### **Automatic Conversions (Widening Conversion)**
+There are two main types:
+
+1. **Static Polymorphism (Compile-Time)**
+2. **Dynamic Polymorphism (Run-Time)**
+
+---
+
+## Lecture 1: Static vs Dynamic Polymorphism
+
+### Static Polymorphism (Compile-Time)
+
+- Resolved during **compilation**
+- Also called **static binding**
+- Achieved using:
+  - Function overloading
+  - Method overloading
+
+> The compiler decides which method to call.
+
+---
+
+### Dynamic Polymorphism (Run-Time)
+
+- Resolved during **runtime**
+- Also called:
+  - Dynamic binding
+  - Dynamic Method Dispatch
+- Achieved using:
+  - Method overriding
+
+> The JVM decides which method to call based on the **object type**.
+
+---
+
+## Lecture 2: Static Polymorphism (Method Overloading)
+
+### Method Overloading
+
 Occurs when:
-1. Types are **compatible**.
-2. Destination type has a **larger range**.
+- Methods have the **same name**
+- But **different parameters**
 
-Examples:
-- int → long  
-- int → float  
-- float → double  
+Differences can be:
+- Number of parameters
+- Data types
+- Order of parameters
 
-### **Explicit Casting (Narrowing Conversion)**
-Required when converting from large type to small type.
-
+Example:
 ```java
-(byte) variable
+int add(int a, int b)  
+double add(double a, double b)  
+int add(int a, int b, int c)
 ```
 
-Risk of data loss.
-
-### **Quick Exam Rule: int → byte**
-```java
-int a = 300;  
-byte x = (byte) a;  
-// x = a % 256  
-// if result > 127 → subtract 256  
-```
 
 ---
 
-## **Java Ternary Operator**
-A short form of an if–else.
+### How Overloading Works
 
-```java
-result = condition ? valueIfTrue : valueIfFalse;
-```
+- Compiler matches arguments with parameters
+- Match does not have to be exact
+- Type conversion may occur
 
 ---
 
-## **Arrays in Java**
+### Advantages of Method Overloading
 
-### **One-Dimensional Array**
+- One interface, multiple implementations
+- Cleaner and more readable code
+- Reduces code duplication
+- Common in Java (e.g., abs())
+- Good practice when used appropriately
+
+---
+
+## Lecture 3: Dynamic Polymorphism (Method Overriding)
+
+### Method Overriding
+
+Occurs when:
+- A subclass method has the **same name**
+- Same parameters
+- Same return type
+- As a method in the superclass
+
+Method call depends on the **object type**, not the reference type.
+
+---
+
+### Key Rules
+
+- Subclass method is called
+- Superclass method is hidden
+- Private methods cannot be overridden
+- Requires inheritance
+
+---
+
 ```java
-int[] numbers = new int[5];  
-int[] values = {1, 2, 3, 4, 5};
+Class Animal  
+- void sound()
+
+Class Dog extends Animal  
+- void sound()
 ```
 
-### **Two-Dimensional Array**
+> If an Animal reference refers to a Dog object, the Dog’s sound() method runs.
+
+---
+
+### Important Keywords
+
+- **extends** – used for inheritance  
+- **super** – used to access superclass methods  
+  Example: super.methodName()
+
+---
+
+## Lecture 4: Constructor Overloading
+
+### Constructor Overloading
+
+- Constructors can be overloaded
+- Same class, different parameter lists
+- Allows flexible object creation
+
+---
+
+### Example
 ```java
-int[][] matrix = new int[3][3];  
-int[][] grid = { {1,2}, {3,4}, {5,6} };
+Box mybox1 = new Box(10, 20, 15)  
+Box mybox2 = new Box()  
+Box mycube = new Box(7)
 ```
+
+> The constructor that matches the arguments is invoked.
+
+---
