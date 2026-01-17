@@ -1,6 +1,6 @@
 public class App {
     public static void main(String[] args) throws Exception {
-        IExercise exercise = new DynamicPolymorphismExample();
-        exercise.Run();
+        IExercise q2 = new Question2();
+        q2.Run();
     }
 }
