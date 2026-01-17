@@ -4,6 +4,56 @@ public class Question3 implements IExercise {
     }
 
     public class Employee {
-        
+        private int Id;
+        private String FirstName;
+        private String LastName;
+        private int Salary;
+    }
+
+    public Employee(int id, String firstName, String lastName, int salary) {
+        Id = id;
+        FirstName = firstName;
+        LastName = lastName;
+        Salary = salary;
+    }
+
+    public int getID() {
+        return Id;
+    }
+
+    public String getFirstName() {
+        return FirstName;
+    }
+
+    public String getLastName() {
+        return LastName;
+    }
+
+    public String getName() {
+        return FirstName + " " + LastName;
+    }
+
+    public int getSalary() {
+        return Salary;
+    }
+
+    public void setSalary(int salary) {
+        Salary = salary;
+    }
+
+    public int getAnnualSalary() {
+        return Salary * 12;
+    }
+
+    public int raiseSalary(int percent) {
+        Salary += Salary * percent / 100;
+        return Salary;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee[id=" + Id +
+               ", name=" + getName() +
+               ", salary=" + Salary + "]";
     }
 }
